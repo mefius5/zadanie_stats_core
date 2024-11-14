@@ -2,6 +2,7 @@
 
 namespace App\Services\Items\ItemTypes;
 
+use App\Item;
 use App\Services\Items\AbstractItem;
 
 class BackstagePassesItem extends AbstractItem
@@ -9,7 +10,7 @@ class BackstagePassesItem extends AbstractItem
 
     public function updateQualityAfterSellin(): void
     {
-        $this->item->quality = 0;
+        $this->item->quality = Item::MIN_QUALITY;
     }
 
     public function updateQualityBeforeSellin(): void

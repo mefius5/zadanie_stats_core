@@ -6,10 +6,11 @@ use App\Services\Items\AbstractItem;
 
 class SulfurasItem extends AbstractItem
 {
+    const MAX_QUALITY = 80;
 
     public function updateSellin(): void
     {
-        $this->item->sell_in = $this->item->sell_in;
+        //nothing changes
     }
 
     public function updateQualityAfterSellin(): void
@@ -24,6 +25,6 @@ class SulfurasItem extends AbstractItem
 
     public function setFinalQuality(): void
     {
-        $this->item->quality = 80;
+        $this->item->quality = self::MAX_QUALITY;
     }
 }

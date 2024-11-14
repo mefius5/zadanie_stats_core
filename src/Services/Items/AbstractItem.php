@@ -8,7 +8,7 @@ abstract class AbstractItem
 {
     public function __construct(protected Item $item) {}
 
-    final public function setProperties(): void
+    final public function updateItemProperties(): void
     {
         $this->updateSellin();
         $this->updateQuality();
@@ -22,19 +22,19 @@ abstract class AbstractItem
 
     protected function updateQuality(): void
     {
-        if($this->item->sell_in < 0){
+        if($this->item->sell_in < Item::MIN_SELL_IN){
             $this->updateQualityAfterSellin();
         }else{
             $this->updateQualityBeforeSellin();
         }
-
     }
 
     protected function setFinalQuality(): void
     {
-        if($this->item->quality > 50)
+        if($this->item->quality > Item::MAX_QUALITY)
             $this->item->quality = Item::MAX_QUALITY;
-        if($this->item->quality < 0)
+
+        if($this->item->quality < Item::MIN_QUALITY)
             $this->item->quality = Item::MIN_QUALITY;
     }
 
