@@ -7,13 +7,23 @@ use App\Services\Items\AbstractItem;
 class SulfurasItem extends AbstractItem
 {
 
-    protected function updateQualityAfterSellin(): void
+    public function updateSellin(): void
     {
-        // TODO: Implement updateQualityAfterSellin() method.
+        $this->item->sell_in = $this->item->sell_in;
     }
 
-    protected function updateQualityBeforeSellin(): void
+    public function updateQualityAfterSellin(): void
     {
-        // TODO: Implement updateQualityBeforeSellin() method.
+        //nothing changes
+    }
+
+    public function updateQualityBeforeSellin(): void
+    {
+        //nothing changes
+    }
+
+    public function setFinalQuality(): void
+    {
+        $this->item->quality = 80;
     }
 }

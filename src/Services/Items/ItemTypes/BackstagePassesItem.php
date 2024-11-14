@@ -7,13 +7,19 @@ use App\Services\Items\AbstractItem;
 class BackstagePassesItem extends AbstractItem
 {
 
-    protected function updateQualityAfterSellin(): void
+    public function updateQualityAfterSellin(): void
     {
-        // TODO: Implement updateQualityAfterSellin() method.
+        $this->item->quality = 0;
     }
 
-    protected function updateQualityBeforeSellin(): void
+    public function updateQualityBeforeSellin(): void
     {
-        // TODO: Implement updateQualityBeforeSellin() method.
+        if($this->item->sell_in < 10 && $this->item->sell_in > 4){
+            $this->item->quality += 2;
+        }elseif($this->item->sell_in < 5){
+            $this->item->quality += 3;
+        }else{
+            $this->item->quality += 1;
+        }
     }
 }

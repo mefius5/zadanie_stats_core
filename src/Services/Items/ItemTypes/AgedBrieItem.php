@@ -7,13 +7,13 @@ use App\Services\Items\AbstractItem;
 class AgedBrieItem extends AbstractItem
 {
 
-    protected function updateQualityAfterSellin(): void
+    public function updateQualityAfterSellin(): void
     {
-        // TODO: Implement updateQualityAfterSellin() method.
+        $this->item->quality += 2;
     }
 
-    protected function updateQualityBeforeSellin(): void
+    public function updateQualityBeforeSellin(): void
     {
-        // TODO: Implement updateQualityBeforeSellin() method.
+        $this->item->quality += 1;
     }
 }
